@@ -37,12 +37,12 @@
         <!-- Свойства подключения к базе данных -->
         <property name="hibernate.hikari.dataSourceClassName">com.mysql.jdbc.jdbc2
             .optional.MysqlDataSource</property>
-        <property name="hikari.dataSource.url">jdbc:mysql://127.0.0.1/sample</property>
+        <property name="hikari.dataSource.url">jdbc:mysql://127.0.0.1:3306/javafx</property>
         <property name="hikari.dataSource.user">root</property>
-        <property name="hikari.dataSource.password">tiger</property>
+        <property name="hikari.dataSource.password">qwa12345</property>
 
         <!-- mappings для аннотированных классов -->
-        <mapping class="com.sample.Employee" />
+        <mapping class="org.example.Employee" />
     </session-factory>
 
 </hibernate-configuration>
