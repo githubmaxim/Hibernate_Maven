@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+
+    <session-factory>
+        <!-- включить ведение журнала всех сгенерированных операторов SQL на консоли -->
+        <property name="show_sql">true</property>
+
+        <!-- отформатировать сгенерированный оператор SQL, чтобы сделать его
+                                                          более  читабельным -->
+        <property name="format_sql">false</property>
+
+        <!-- Hibernate поместит комментарии во все сгенерированные операторы SQL, чтобы
+                                           подсказать, что пытается сгенерированный SQL -->
+        <property name="use_sql_comments">true</property>
+
+        <!-- Это свойство заставляет Hibernate генерировать соответствующий SQL для
+                                                              выбранной базы данных -->
+        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+
+        <!-- Удалить и заново создать схему базы данных при запуске -->
+        <property name="hbm2ddl.auto">update</property>
+        <property name="connection.release_mode">after_transaction</property>
+
+        <!-- Специальные свойства Hikari и MySQL-->
+        <property name="connection.provider_class">com.zaxxer.hikari.hibernate
+            .HikariConnectionProvider</property>
+        <property name="hikari.dataSource.cachePrepStmts">true</property>
+        <property name="hikari.dataSource.prepStmtCacheSize">250</property>
+        <property name="hikari.dataSource.prepStmtCacheSqlLimit">2048</property>
+        <property name="hikari.dataSource.useServerPrepStmts">true</property>
+        <property name="hikari.maximumPoolSize">30</property>
+        <property name="hikari.idleTimeout">30000</property>
+
+        <!-- Свойства подключения к базе данных -->
+        <property name="hibernate.hikari.dataSourceClassName">com.mysql.jdbc.jdbc2
+            .optional.MysqlDataSource</property>
+        <property name="hikari.dataSource.url">jdbc:mysql://127.0.0.1/sample</property>
+        <property name="hikari.dataSource.user">root</property>
+        <property name="hikari.dataSource.password">tiger</property>
+
+        <!-- mappings для аннотированных классов -->
+        <mapping class="com.sample.Employee" />
+    </session-factory>
+
+</hibernate-configuration>
