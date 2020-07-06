@@ -9,5 +9,8 @@
         <module name="Hibernate_Maven" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Hibernate_Maven_withHikariCP" target="1.5" />
+    </bytecodeTargetLevel>
   </component>
 </project>
