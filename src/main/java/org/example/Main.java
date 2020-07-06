@@ -40,11 +40,11 @@ public class Main {
         try(Session session = HibernateUtil.getSession()) {
             session.beginTransaction();
 
-            Employee employee = new Employee();
-            employee.setFirstName("Vova");
-            employee.setLastName("Nik");
+            Employee employee1 = new Employee();
+            employee1.setFirstName("Max");
+            employee1.setLastName("Ok");
 
-            session.save(employee);
+            session.save(employee1);
 
             session.getTransaction().commit();
         } catch (Throwable e) {
@@ -71,7 +71,5 @@ public class Main {
         }
 
         HibernateUtil.shutDown();
-
-
     }
 }
